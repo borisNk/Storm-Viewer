@@ -1,6 +1,6 @@
 # Storm Viewer
 
-Project created for the purpose of learning Swift language
+Project created for the purpose of learning Swift language. It shows a UITableView with all the images with nssl in the name. Then you can click on each image's tittle to show the image at full screen with the image number of the total image pool. 
 
 ## Getting Started
 

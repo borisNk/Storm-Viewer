@@ -27,6 +27,7 @@
 		C890256F23F74D11007A0F65 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = C890256D23F74D11007A0F65 /* LICENSE.md */; };
 		C8934D8623F5E19B0071FE88 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8934D8423F5E19B0071FE88 /* DetailViewController.swift */; };
 		C8934D8723F5E19B0071FE88 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8934D8523F5E19B0071FE88 /* DetailViewController.xib */; };
+		C8A06C5423FB15CA001F4C37 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A06C5323FB15CA001F4C37 /* chevron.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C890256D23F74D11007A0F65 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		C8934D8423F5E19B0071FE88 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C8934D8523F5E19B0071FE88 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		C8A06C5323FB15CA001F4C37 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevron.png; path = ../../../../Downloads/chevron.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				C8747B5123F4A3BD00D30308 /* nssl0043.jpg */,
 				C8747B5223F4A3BD00D30308 /* nssl0033.jpg */,
 				C8747B5323F4A3BD00D30308 /* nssl0034.jpg */,
+				C8A06C5323FB15CA001F4C37 /* chevron.png */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8747B5523F4A3BD00D30308 /* nssl0046.jpg in Resources */,
+				C8A06C5423FB15CA001F4C37 /* chevron.png in Resources */,
 				C8747B5C23F4A3BD00D30308 /* nssl0033.jpg in Resources */,
 				C8747B5823F4A3BD00D30308 /* nssl0051.jpg in Resources */,
 				C8747B5623F4A3BD00D30308 /* nssl0091.jpg in Resources */,
