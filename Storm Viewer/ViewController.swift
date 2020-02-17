@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UITableViewController {
+    let chevron = UIImage(named: "chevron.png")
     var pictures = [String]()
     
     override func viewDidLoad() {
@@ -25,7 +26,8 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
-        print(pictures)
+        
+        pictures.sort(by: { $0 < $1})
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,13 +37,18 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         cell.textLabel?.text = pictures[indexPath.row]
-        
+    
+        cell.accessoryType = .disclosureIndicator
+        cell.accessoryView = UIImageView(image: chevron!)
+    
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
             vc.selectedImage = pictures[indexPath.row]
+            vc.selectedIndex = indexPath.row + 1
+            vc.totalSize = pictures.count
             navigationController?.pushViewController(vc, animated: true)
         }
     }
