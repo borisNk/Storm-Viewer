@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
-    let chevron = UIImage(named: "chevron.png")
+class ViewController: UICollectionViewController {
     var pictures = [String]()
     
     override func viewDidLoad() {
@@ -33,25 +32,30 @@ class ViewController: UITableViewController {
         }
         
         pictures.sort(by: { $0 < $1})
-        
-        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pictures.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row]
-    
-        cell.accessoryType = .disclosureIndicator
-        cell.accessoryView = UIImageView(image: chevron!)
-    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath) as? PictureCell else {
+            fatalError("Unable to dequeue PictureCell.")
+        }
+        
+        cell.name.text = pictures[indexPath.item]
+        cell.imageView.image = UIImage(named: pictures[indexPath.item])
+        
+        cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+        cell.imageView.layer.borderWidth = 2
+        cell.imageView.layer.cornerRadius = 3
+        cell.layer.cornerRadius = 7
+        
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
             vc.selectedImage = pictures[indexPath.row]
             vc.selectedIndex = indexPath.row + 1
@@ -63,8 +67,8 @@ class ViewController: UITableViewController {
     @objc func recomendAppTapped() {
         let message = "You should try this app!"
         let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
-               vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-               present(vc, animated: true)
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
 }
 
